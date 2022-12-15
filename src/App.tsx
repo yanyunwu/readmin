@@ -1,12 +1,16 @@
 import React from "react"
-import { Home } from './views/pages'
+import { MenuRouter } from '@/components/MenuRouter'
+import { Router } from '@/router'
 
-import './App.css'
+import '@/styles/App.css'
+
 
 export const App: React.FC = () => {
   return (
     <div className="App">
-      <Home />
+      <MenuRouter>
+        <Router />
+      </MenuRouter>
     </div>
   )
 }
