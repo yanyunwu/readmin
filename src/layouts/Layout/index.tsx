@@ -6,6 +6,7 @@ import {
   MenuUnfoldOutlined,
 } from '@ant-design/icons';
 import { usePrefix } from '@/hooks/usePrefix'
+import { Logo } from '../components'
 
 import './styles.less'
 
@@ -23,7 +24,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
   return (
     <AntdLayout className={prefix}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className={prefix + '-logo'} />
+        <Logo collapsed={collapsed}/>
         <Menu
           theme="dark"
           mode="inline"

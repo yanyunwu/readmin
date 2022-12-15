@@ -22,7 +22,7 @@ export const Router: React.FC<React.PropsWithChildren> = () => {
             const Target = pageManager.getPage(item.page)
             return {
                 path: item.path,
-                element: Target ? <Target /> : null
+                element: Target ? <Target /> : '你还没有为该页面添加组件呢~~~'
             }
         })
     }, [menu])
@@ -43,7 +43,7 @@ export const Router: React.FC<React.PropsWithChildren> = () => {
     ]), [menuRoutes])
 
     const router = useMemo(() => {
-        return createBrowserRouter(routes, { basename: '/admin' })
+        return createBrowserRouter(routes, { basename: '/' })
     }, [routes])
     
     return <RouterProvider router={router} />

@@ -11,7 +11,7 @@ export const Login: React.FC = () => {
   const navigate = useNavigate()
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
-    navigate('/')
+    navigate('/home')
     message.success('登录成功！')
   };
 
@@ -19,10 +19,10 @@ export const Login: React.FC = () => {
     <div className={prefix}>
         <div className={prefix + '-form'}>
             <Form
-            name="normal_login"
-            className="login-form"
-            initialValues={{ remember: true }}
-            onFinish={onFinish}
+                name="normal_login"
+                className="login-form"
+                initialValues={{ remember: true }}
+                onFinish={onFinish}
             >
             <Form.Item
                 name="username"

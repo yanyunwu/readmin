@@ -10,5 +10,11 @@
         "title": "测试",
         "icon": "user",
         "page": "TestPage"
+    },
+    {
+        "path": "/lll",
+        "title": "测试123",
+        "icon": "user",
+        "page": "Login"
     }
 ]
