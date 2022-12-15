@@ -1,6 +1,5 @@
 
-
 export const getMenu = async () => {
-    const res = await fetch('/mock/menu.json')
-    return res.json()
+  const res = await fetch('/mock/menu.json')
+  return await res.json()
 }

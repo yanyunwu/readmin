@@ -1,8 +1,7 @@
+import React from 'react'
 
 export const TestPage = () => {
-
-    return (
-
+  return (
         <div>test</div>
-    )
+  )
 }

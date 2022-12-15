@@ -1,28 +1,28 @@
-import React from 'react';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input, message } from 'antd';
+import React from 'react'
+import { LockOutlined, UserOutlined } from '@ant-design/icons'
+import { Button, Checkbox, Form, Input, message } from 'antd'
 
 import './styles.less'
-import { usePrefix } from '@/hooks';
-import { useNavigate } from 'react-router-dom';
+import { usePrefix } from '@/hooks'
+import { useNavigate } from 'react-router-dom'
 
 export const Login: React.FC = () => {
   const prefix = usePrefix('login')
   const navigate = useNavigate()
-  const onFinish = (values: any) => {
-    console.log('Received values of form: ', values);
-    navigate('/')
+  const onFinish = (values: any): void => {
+    console.log('Received values of form: ', values)
+    navigate('/home')
     message.success('登录成功！')
-  };
+  }
 
   return (
     <div className={prefix}>
         <div className={prefix + '-form'}>
             <Form
-            name="normal_login"
-            className="login-form"
-            initialValues={{ remember: true }}
-            onFinish={onFinish}
+                name="normal_login"
+                className="login-form"
+                initialValues={{ remember: true }}
+                onFinish={onFinish}
             >
             <Form.Item
                 name="username"
@@ -59,5 +59,5 @@ export const Login: React.FC = () => {
             </Form>
         </div>
     </div>
-  );
+  )
 }

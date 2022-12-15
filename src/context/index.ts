@@ -1,11 +1,11 @@
-import React, { createContext } from 'react'
+import { createContext } from 'react'
 
-export type Menu = {
-    path: string,
-    title: string,
-    icon: string,
-    page: string,
-    children?: Menu[]
+export interface Menu {
+  path: string
+  title: string
+  icon: string
+  page: string
+  children?: Menu[]
 }
 export type IMenuRouterContext = Menu[]
 
