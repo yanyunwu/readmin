@@ -1,11 +1,13 @@
 [
     {
         "path": "/home",
+        "title": "主页",
         "icon": "user",
         "page": "Home"
     },
     {
         "path": "/test",
+        "title": "测试",
         "icon": "user",
         "page": "TestPage"
     }

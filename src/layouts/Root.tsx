@@ -7,7 +7,7 @@ import {
     UserOutlined,
     VideoCameraOutlined,
 } from '@ant-design/icons';
-import { MenuRouterContext } from '@/context'
+import { useMenu } from '@/hooks/useMenu';
 
 type MenuType = Required<MenuProps>['items'][number]
 
@@ -20,6 +20,8 @@ const getRoute = (path: string, icon: React.ReactNode, label: string, children?:
 }
 
 export const Root = () => {
+    const menu = useMenu()
+
     /**
      * 路由守卫可以在这里做
     */
@@ -32,15 +34,11 @@ export const Root = () => {
         }
     }, [location])
 
-    const routes = [
-        getRoute('/', <UserOutlined />, '首页'),
-        getRoute('/home', <UploadOutlined />, '主页'),
-        getRoute('/test', <VideoCameraOutlined />, '测试')
-    ]
+    const routes = menu?.map((item) => {
+        return getRoute(item.path, <UserOutlined />, item.title)
+    })
 
     return (
-        <MenuRouterContext.Provider value={1}>
-            <Layout routes={routes} />
-        </MenuRouterContext.Provider>
+        <Layout routes={routes} />
     )
 }

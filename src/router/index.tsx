@@ -3,9 +3,6 @@ import { createBrowserRouter, RouteObject, RouterProvider } from 'react-router-d
 import pageManager from '@/pages/page-manager'
 import { Root } from '@/layouts'
 import { Login } from '@/pages/Login'
-
-import { Home } from '@/pages/Home'
-import { TestPage } from '@/pages/TestPage'
 import { useMenu } from '@/hooks/useMenu'
 
 
@@ -18,20 +15,20 @@ export const Router: React.FC<React.PropsWithChildren> = () => {
     const menuRoutes = useMemo<RouteObject[]>(() => {
         if (!menu) return []
 
-        return [
-            {
-                path: "/home",
-                element: <Home />
-            },
-            {
-                path: "/test",
-                element: <TestPage />
+        /**
+         * 动态根据远程的menu菜单计算routes
+        */
+        return menu.map((item) => {
+            const Target = pageManager.getPage(item.page)
+            return {
+                path: item.path,
+                element: Target ? <Target /> : null
             }
-        ]
+        })
     }, [menu])
 
     /**
-     * 基础路由配置
+     * 全局路由配置
     */
     const routes = useMemo<RouteObject[]>(() => ([
         {

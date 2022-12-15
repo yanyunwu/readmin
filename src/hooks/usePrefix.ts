@@ -1,6 +1,6 @@
 import React from "react"
 
 export const usePrefix = (after?: string) => {
-  const prefix = 'rtest'
+  const prefix = 'readmin'
   return `${prefix}-${after || ''}`
 }

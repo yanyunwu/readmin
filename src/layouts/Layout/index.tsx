@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import { Layout as AntdLayout, Menu, MenuProps } from 'antd';
 import {
   MenuFoldOutlined,
@@ -18,6 +18,7 @@ export interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = (props) => {
   const prefix = usePrefix('layout')
   const [collapsed, setCollapsed] = useState(false);
+  const location = useLocation()
 
   return (
     <AntdLayout className={prefix}>
@@ -26,7 +27,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['1']}
+          defaultSelectedKeys={[location.pathname]}
           items={props.routes}
         />
       </Sider>
