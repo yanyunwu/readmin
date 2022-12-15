@@ -10,7 +10,8 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'standard-with-typescript'
+    'standard-with-typescript',
+    // 'prettier'
   ],
   overrides: [
   ],
@@ -21,11 +22,13 @@ module.exports = {
     tsconfigRootDir: __dirname
   },
   plugins: [
-    'react'
+    'react',
+    // 'prettier'
   ],
   rules: {
-    '@typescript-eslint/no-floating-promises': 0,
-    '@typescript-eslint/explicit-function-return-type': 0,
-    '@typescript-eslint/triple-slash-reference': 0
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/triple-slash-reference': 'off',
+    'comma-dangle': 'off'
   }
 }
