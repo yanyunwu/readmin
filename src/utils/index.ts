@@ -1,2 +1,2 @@
 
-export const name = 'utils';
+export const name = 'utils'

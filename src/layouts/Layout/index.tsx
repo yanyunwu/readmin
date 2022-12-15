@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import { Layout as AntdLayout, Menu, MenuProps } from 'antd';
+import { Layout as AntdLayout, Menu, MenuProps } from 'antd'
 import {
   MenuFoldOutlined,
-  MenuUnfoldOutlined,
-} from '@ant-design/icons';
+  MenuUnfoldOutlined
+} from '@ant-design/icons'
 import { usePrefix } from '@/hooks/usePrefix'
 import { Logo } from '../components'
 
 import './styles.less'
 
-const { Header, Sider, Content } = AntdLayout;
+const { Header, Sider, Content } = AntdLayout
 
 export interface LayoutProps {
   routes?: MenuProps['items']
@@ -18,7 +18,7 @@ export interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = (props) => {
   const prefix = usePrefix('layout')
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(false)
   const location = useLocation()
 
   return (
@@ -36,7 +36,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
         <Header className={prefix + '-header'}>
           {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
             className: prefix + '-trigger',
-            onClick: () => setCollapsed(!collapsed),
+            onClick: () => setCollapsed(!collapsed)
           })}
         </Header>
         <Content className={prefix + '-content'}>
@@ -44,5 +44,5 @@ export const Layout: React.FC<LayoutProps> = (props) => {
         </Content>
       </AntdLayout>
     </AntdLayout>
-  );
-};
+  )
+}

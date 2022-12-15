@@ -1,44 +1,42 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
 import { useLocation, useNavigate, Link } from 'react-router-dom'
 import type { MenuProps } from 'antd'
 import { Layout } from './Layout'
 import {
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
-} from '@ant-design/icons';
-import { useMenu } from '@/hooks/useMenu';
+  UserOutlined
+} from '@ant-design/icons'
+import { useMenu } from '@/hooks/useMenu'
 
 type MenuType = Required<MenuProps>['items'][number]
 
 const getRoute = (path: string, icon: React.ReactNode, label: string, children?: MenuType[]) => {
-    return {
-        key: path,
-        icon: icon,
-        label: <Link to={path} >{label}</Link>
-    }
+  return {
+    key: path,
+    icon,
+    label: <Link to={path} >{label}</Link>
+  }
 }
 
 export const Root = () => {
-    const menu = useMenu()
+  const menu = useMenu()
 
-    /**
+  /**
      * 路由守卫可以在这里做
     */
-    const location = useLocation()
-    const navigate = useNavigate()
+  const location = useLocation()
+  const navigate = useNavigate()
 
-    useEffect(() => {
-        if (location.pathname === '/') {
-            navigate('/home', { replace: true })
-        }
-    }, [location])
+  useEffect(() => {
+    if (location.pathname === '/') {
+      navigate('/home', { replace: true })
+    }
+  }, [location])
 
-    const routes = menu?.map((item) => {
-        return getRoute(item.path, <UserOutlined />, item.title)
-    })
+  const routes = menu?.map((item) => {
+    return getRoute(item.path, <UserOutlined />, item.title)
+  })
 
-    return (
+  return (
         <Layout routes={routes} />
-    )
+  )
 }
