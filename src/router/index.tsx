@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import { createBrowserRouter, RouteObject, RouterProvider } from 'react-router-dom'
-import pageManager from '@/pages/page-manager'
+import { pageManager } from '@/managers'
 import { Root } from '@/layouts'
 import { Login } from '@/pages/Login'
 import { useMenu } from '@/hooks/useMenu'
@@ -18,7 +18,7 @@ export const Router: React.FC<React.PropsWithChildren> = () => {
          * 动态根据远程的menu菜单计算routes
         */
     return menu.map((item) => {
-      const Target = pageManager.getPage(item.page)
+      const Target = pageManager.getName(item.page)
       return {
         path: item.path,
         element: (Target != null) ? <Target /> : '你还没有为该页面添加组件呢~~~'

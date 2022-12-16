@@ -2,7 +2,7 @@
     {
         "path": "/home",
         "title": "主页",
-        "icon": "user",
+        "icon": "HomeOutlined",
         "page": "Home"
     },
     {
@@ -12,9 +12,9 @@
         "page": "TestPage"
     },
     {
-        "path": "/lll",
-        "title": "测试123",
-        "icon": "user",
-        "page": "Login"
+        "path": "/table-page",
+        "title": "表格页面",
+        "icon": "TableOutlined",
+        "page": "TablePage"
     }
 ]

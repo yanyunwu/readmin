@@ -1,7 +1,7 @@
 {
-  "name": "r-test",
+  "name": "readmin",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,7 +13,6 @@
     "ahooks": "^3.7.2",
     "antd": "^5.0.5",
     "eslint": "^8.0.1",
-    "eslint-config-prettier": "^8.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.5"
@@ -24,6 +23,7 @@
     "@types/react-dom": "^18.0.9",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@vitejs/plugin-react": "^3.0.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^24.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",

@@ -2,10 +2,9 @@ import React, { useEffect } from 'react'
 import { useLocation, useNavigate, Link } from 'react-router-dom'
 import type { MenuProps } from 'antd'
 import { Layout } from './Layout'
-import {
-  UserOutlined
-} from '@ant-design/icons'
+import { QuestionOutlined } from '@ant-design/icons'
 import { useMenu } from '@/hooks/useMenu'
+import { iconManager } from '@/managers'
 
 type MenuType = Required<MenuProps>['items'][number]
 
@@ -33,10 +32,11 @@ export const Root = () => {
   }, [location])
 
   const routes = menu?.map((item) => {
-    return getRoute(item.path, <UserOutlined />, item.title)
+    const Icon = iconManager.getName(item.icon) ?? QuestionOutlined
+    return getRoute(item.path, <Icon />, item.title)
   })
 
   return (
-        <Layout routes={routes} />
+    <Layout routes={routes} />
   )
 }

@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import { Layout as AntdLayout, Menu, MenuProps } from 'antd'
+import { Breadcrumb, Layout as AntdLayout, Menu, MenuProps } from 'antd'
 import {
+  HomeOutlined,
   MenuFoldOutlined,
-  MenuUnfoldOutlined
+  MenuUnfoldOutlined,
+  UserOutlined
 } from '@ant-design/icons'
 import { usePrefix } from '@/hooks/usePrefix'
 import { Logo } from '../components'
@@ -23,7 +25,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
 
   return (
     <AntdLayout className={prefix}>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+      <Sider trigger={null} collapsible collapsed={collapsed} breakpoint="lg" onBreakpoint={(b) => setCollapsed(b)}>
         <Logo collapsed={collapsed}/>
         <Menu
           theme="dark"
@@ -38,6 +40,17 @@ export const Layout: React.FC<LayoutProps> = (props) => {
             className: prefix + '-trigger',
             onClick: () => setCollapsed(!collapsed)
           })}
+
+        <Breadcrumb>
+            <Breadcrumb.Item href="">
+              <HomeOutlined />
+            </Breadcrumb.Item>
+            <Breadcrumb.Item href="">
+              <UserOutlined />
+              <span>Application List</span>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>Application</Breadcrumb.Item>
+          </Breadcrumb>
         </Header>
         <Content className={prefix + '-content'}>
           <Outlet />
